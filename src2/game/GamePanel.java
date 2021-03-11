@@ -8,10 +8,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
-    Font titleFont;
+    Timer frameDraw;
+    
+
+	
+	Font titleFont;
     Font directions;
 	
 	final int MENU = 0;
@@ -22,6 +28,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     public GamePanel(){
     	this.titleFont = new Font("Arial", Font.PLAIN, 48);
     	this.directions = new Font("Arial",Font.PLAIN,24);
+    this.frameDraw=new Timer(1000/60,this);
+    frameDraw.start();
     }
     
 	@Override
@@ -30,13 +38,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		    drawMenuState(g);
 		    g.setFont(titleFont);
 		    g.setColor(Color.RED);
-		    g.drawString("Subway Surfers", 400, 100);
+		    g.drawString("Subway Surfers", 600, 100);
 		    g.setFont(directions);
 		    g.setColor(Color.RED);
-		    g.drawString("Press enter to play the game", 400, 500);
+		    g.drawString("Press enter to play the game", 600, 300);
 		    g.setFont(directions);
 		    g.setColor(Color.RED);
-		    g.drawString("Press space for instructions", 400, 700);
+		    g.drawString("Press space for instructions", 600, 500);
 		}else if(currentState == GAME){
 		    drawGameState(g);
 		}else if(currentState == END){
@@ -70,13 +78,45 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		if(currentState==MENU) {
+			updateMenuState();
+		}else if(currentState==GAME) {
+		updateGameState();
+	}else if (currentState==END) {
+		updateEndState();
+	}
+		System.out.println("action");
+		repaint();
 	}
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
+		if(arg0.getKeyCode()==KeyEvent.VK_ENTER) {
+			if(currentState==END)
+				currentState=MENU;
+		}else {
+			currentState++;
+		}
 		
+		if(currentState == GAME) {
+			if(arg0.getKeyCode()==KeyEvent.VK_UP) {
+				System.out.println("UP");
+			}
+			else if(arg0.getKeyCode()==KeyEvent.VK_LEFT) {
+				System.out.println("LEFT");
+			}
+			else if(arg0.getKeyCode()==KeyEvent.VK_RIGHT) {
+				System.out.println();
+			}
+		}
+			
+		if(currentState==MENU) {
+			if(arg0.getKeyCode()==KeyEvent.VK_SPACE) {
+				JOptionPane.showMessageDialog(null, "Use the left and right arrow keys "
+						+ "to switch lanes and the up arrow key to jump.");
+			}
+		}
 	}
 
 	@Override
