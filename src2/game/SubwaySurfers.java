@@ -6,7 +6,7 @@ public class SubwaySurfers {
 	JFrame frame;
 	GamePanel gp;
 	public static final int WIDTH = 1500;
-	public static final int HEIGHT = 750;
+	public static final int HEIGHT = 700;
 
 	public SubwaySurfers() {
 		this.frame = new JFrame();
