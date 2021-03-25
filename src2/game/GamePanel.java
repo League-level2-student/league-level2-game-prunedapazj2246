@@ -71,9 +71,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void drawGameState(Graphics g) {
 		g.setColor(Color.CYAN);
-		g.fillRect(0, 0, SubwaySurfers.WIDTH, SubwaySurfers.HEIGHT);
+		g.fillRect(0, 0, SubwaySurfers.WIDTH, 200);
 		g.setColor(Color.BLACK);
-		g.fillRect(0, 200, SubwaySurfers.WIDTH, 500);
+		g.fillRect(0, 200, SubwaySurfers.WIDTH, SubwaySurfers.HEIGHT-200);
 		g.setColor(Color.YELLOW);
 		g.fillRect(0, 360, SubwaySurfers.WIDTH, 10);
 		g.fillRect(0, 520, SubwaySurfers.WIDTH, 10);
@@ -122,11 +122,21 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 		if (currentState == GAME) {
 			if (arg0.getKeyCode() == KeyEvent.VK_UP) {
-				System.out.println("UP");
+				System.out.println("JUMP UP");
+				bob.jumpUp();
+				
 			} else if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
 				System.out.println("LEFT");
+				bob.left();
+				if(bob.y<96) {
+					bob.y=255;
+				}
 			} else if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
-				System.out.println();
+				System.out.println("RIGHT");
+				bob.right();
+				if(bob.y>575) {
+					bob.y=575;
+				}
 			}
 		}
 
