@@ -77,6 +77,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.YELLOW);
 		g.fillRect(0, 360, SubwaySurfers.WIDTH, 10);
 		g.fillRect(0, 520, SubwaySurfers.WIDTH, 10);
+		g.fillRect(0, 690, SubwaySurfers.WIDTH, 20);
 		bob.draw(g);
 	}
 
