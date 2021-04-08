@@ -15,6 +15,8 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	BobThePersonWhoRuns bob = new BobThePersonWhoRuns(20,415,50,50);
 	
+	ObjectManager ob= new ObjectManager(bob);
+	
 	Timer frameDraw;
 
 	Font titleFont;
@@ -48,7 +50,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void updateGameState() {
-
+ob.update();
 	}
 
 	public void updateEndState() {
@@ -78,7 +80,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.fillRect(0, 360, SubwaySurfers.WIDTH, 10);
 		g.fillRect(0, 520, SubwaySurfers.WIDTH, 10);
 		g.fillRect(0, 690, SubwaySurfers.WIDTH, 20);
-		bob.draw(g);
+		ob.draw(g);
 	}
 
 	public void drawEndState(Graphics g) {
