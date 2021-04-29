@@ -18,6 +18,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	ObjectManager ob= new ObjectManager(bob);
 	
 	Timer frameDraw;
+Timer trainsSpawn;
+Timer benchesSpawn;
+Timer coinsSpawn;
 
 	Font titleFont;
 	Font directions;
@@ -97,6 +100,14 @@ ob.update();
 		g.drawString("press enter to restart", 600, 500);
 	}
 
+	public void startGame() {
+		trainsSpawn= new Timer(2000, ob);
+		trainsSpawn.start();
+		benchesSpawn = new Timer(1000, ob);
+		benchesSpawn.start();
+		coinsSpawn=new Timer(3000, ob);
+		coinsSpawn.start();
+	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -148,6 +159,14 @@ ob.update();
 				JOptionPane.showMessageDialog(null,
 						"Use the left and right arrow keys " + "to switch lanes and the up arrow key to jump.");
 			}
+		}
+		if(currentState == GAME) {
+		startGame();	
+		}
+		if(currentState == END) {
+			trainsSpawn.stop();
+			benchesSpawn.stop();
+			coinsSpawn.stop();
 		}
 	}
 

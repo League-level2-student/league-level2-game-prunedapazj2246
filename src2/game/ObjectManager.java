@@ -1,10 +1,12 @@
 package game;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ObjectManager{
+public class ObjectManager implements ActionListener{
 BobThePersonWhoRuns bob2;
 ArrayList<Trains>trains= new ArrayList<Trains>();
 ArrayList<Benches>benches= new ArrayList<Benches>();
@@ -78,6 +80,13 @@ public void purgeObjects() {
 			coins.remove(i);
 		}
 	}
+}
+@Override
+public void actionPerformed(ActionEvent arg0) {
+	// TODO Auto-generated method stub
+	addTrains();
+	addBenches();
+	addCoins();
 }
 
 }
