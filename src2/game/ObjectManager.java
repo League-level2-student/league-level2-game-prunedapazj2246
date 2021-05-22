@@ -16,13 +16,13 @@ public ObjectManager(BobThePersonWhoRuns bob2) {
 	this.bob2=bob2;
 }
 public void addTrains() {
-	trains.add(new Trains(r.nextInt(SubwaySurfers.WIDTH),500,50,50));
+	trains.add(new Trains(1500,r.nextInt(SubwaySurfers.HEIGHT),100,70));
 }
 public void addBenches() {
-	benches.add(new Benches(r.nextInt(SubwaySurfers.WIDTH),500,50,50));
+	benches.add(new Benches(1500,r.nextInt(SubwaySurfers.HEIGHT),60,60));
 }
 public void addCoins() {
-	coins.add(new Coins(r.nextInt(SubwaySurfers.WIDTH),500,50,50));
+	coins.add(new Coins(1500,r.nextInt(SubwaySurfers.HEIGHT),70,70));
 }
 
 

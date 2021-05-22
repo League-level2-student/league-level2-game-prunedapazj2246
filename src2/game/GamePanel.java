@@ -13,14 +13,14 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
-	BobThePersonWhoRuns bob = new BobThePersonWhoRuns(20,415,50,50);
+	BobThePersonWhoRuns bob = new BobThePersonWhoRuns(20,415,70,80);
 	
 	ObjectManager ob= new ObjectManager(bob);
 	
 	Timer frameDraw;
-Timer trainsSpawn;
-Timer benchesSpawn;
-Timer coinsSpawn;
+	Timer trainsSpawn= new Timer(6000, ob);
+Timer benchesSpawn = new Timer(3000, ob);
+Timer coinsSpawn=new Timer(5000, ob);
 
 	Font titleFont;
 	Font directions;
@@ -101,11 +101,11 @@ ob.update();
 	}
 
 	public void startGame() {
-		trainsSpawn= new Timer(2000, ob);
+		
 		trainsSpawn.start();
-		benchesSpawn = new Timer(1000, ob);
+		
 		benchesSpawn.start();
-		coinsSpawn=new Timer(3000, ob);
+		
 		coinsSpawn.start();
 	}
 	@Override
@@ -152,6 +152,7 @@ ob.update();
 					bob.y=575;
 				}
 			}
+			startGame();
 		}
 
 		if (currentState == MENU) {
@@ -159,9 +160,6 @@ ob.update();
 				JOptionPane.showMessageDialog(null,
 						"Use the left and right arrow keys " + "to switch lanes and the up arrow key to jump.");
 			}
-		}
-		if(currentState == GAME) {
-		startGame();	
 		}
 		if(currentState == END) {
 			trainsSpawn.stop();
