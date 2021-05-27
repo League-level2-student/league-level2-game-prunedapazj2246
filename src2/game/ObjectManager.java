@@ -16,13 +16,22 @@ public ObjectManager(BobThePersonWhoRuns bob2) {
 	this.bob2=bob2;
 }
 public void addTrains() {
-	trains.add(new Trains(1500,r.nextInt(SubwaySurfers.HEIGHT),100,70));
+	//trains.add(new Trains(1500,r.nextInt(500)+200,100,70));
+	trains.add(new Trains(1500,245,70,70));
+	trains.add(new Trains(1500,410,70,70));
+	trains.add(new Trains(1500,575,70,70));
 }
 public void addBenches() {
-	benches.add(new Benches(1500,r.nextInt(SubwaySurfers.HEIGHT),60,60));
+//	benches.add(new Benches(1500,r.nextInt(500)+200,60,60));
+	benches.add(new Benches(1500,250,60,60));
+	benches.add(new Benches(1500,415,60,60));
+	benches.add(new Benches(1500,580,70,70));
 }
 public void addCoins() {
-	coins.add(new Coins(1500,r.nextInt(SubwaySurfers.HEIGHT),70,70));
+	//coins.add(new Coins(1500,r.nextInt(500)+200,70,70));
+	coins.add(new Coins(1500,245,70,70));
+	coins.add(new Coins(1500,410,70,70));
+	coins.add(new Coins(1500,575,70,70));
 }
 
 

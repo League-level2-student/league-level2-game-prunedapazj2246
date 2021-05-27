@@ -14,7 +14,7 @@ public class Coins extends GameObject{
 	public Coins(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
-		speed = 3;
+		speed = 2;
 		if (needImage) {
 		    loadImage ("pngtree-cartoon-coin-image_1288778.jpg");
 		}

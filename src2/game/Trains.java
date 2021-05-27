@@ -13,7 +13,7 @@ public class Trains extends GameObject{
 	
 	public Trains(int x, int y, int width, int height) {
 		super(x, y, width, height);
-	speed =2;
+	speed =1;
 	if (needImage) {
 	    loadImage ("79-799993_train-engine-clipart-cartoon-train-side-view-png.jpg");
 	}
