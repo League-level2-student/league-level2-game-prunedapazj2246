@@ -3,6 +3,7 @@ package game;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -13,14 +14,16 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
+	Rectangle collisionBox;
+	
 	BobThePersonWhoRuns bob = new BobThePersonWhoRuns(20,415,70,80);
 	
 	ObjectManager ob= new ObjectManager(bob);
 	
 	Timer frameDraw;
-	Timer trainsSpawn= new Timer(6000, ob);
-Timer benchesSpawn = new Timer(3000, ob);
-Timer coinsSpawn=new Timer(5000, ob);
+	Timer trainsSpawn= new Timer(20000, ob);
+Timer benchesSpawn = new Timer(10000, ob);
+Timer coinsSpawn=new Timer(15000, ob);
 
 	Font titleFont;
 	Font directions;
@@ -35,6 +38,7 @@ Timer coinsSpawn=new Timer(5000, ob);
 		this.directions = new Font("Arial", Font.PLAIN, 24);
 		this.frameDraw = new Timer(1000 / 60, this);
 		frameDraw.start();
+		collisionBox = new Rectangle(10,10,10,10);
 	}
 
 	@Override

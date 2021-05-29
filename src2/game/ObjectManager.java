@@ -17,21 +17,34 @@ public ObjectManager(BobThePersonWhoRuns bob2) {
 }
 public void addTrains() {
 	//trains.add(new Trains(1500,r.nextInt(500)+200,100,70));
+	
+	if(r.nextInt(3)==0) {
 	trains.add(new Trains(1500,245,70,70));
+	}
+	else if(r.nextInt(3)==1) {
 	trains.add(new Trains(1500,410,70,70));
+	}
+	else {
 	trains.add(new Trains(1500,575,70,70));
+	}
 }
 public void addBenches() {
 //	benches.add(new Benches(1500,r.nextInt(500)+200,60,60));
-	benches.add(new Benches(1500,250,60,60));
-	benches.add(new Benches(1500,415,60,60));
+	benches.add(new Benches(1500,250,70,70));
+	benches.add(new Benches(1500,415,70,70));
 	benches.add(new Benches(1500,580,70,70));
 }
 public void addCoins() {
 	//coins.add(new Coins(1500,r.nextInt(500)+200,70,70));
-	coins.add(new Coins(1500,245,70,70));
-	coins.add(new Coins(1500,410,70,70));
+	if(r.nextInt(3)==0) {
+		coins.add(new Coins(1500,245,70,70));
+	}
+	else if(r.nextInt(3)==1) {
+		coins.add(new Coins(1500,410,70,70));
+	}
+	else{
 	coins.add(new Coins(1500,575,70,70));
+	}
 }
 
 
