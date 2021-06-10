@@ -14,6 +14,7 @@ public class BobThePersonWhoRuns extends GameObject{
 	public BobThePersonWhoRuns(int x, int y, int width, int height) {
 		    super(x, y, width, height);
 		speed=160;
+		speed2=8;
 		jumpY=70;
 		jumpX=40;
 		if (needImage) {
@@ -44,9 +45,15 @@ void jumpUp() {
 	}
 }
 void left() {
-	y-=speed;
+	x-=speed2;
 }
 void right() {
+	x+=speed2;
+}
+void up() {
+	y-=speed;	
+}
+void down() {
 	y+=speed;
 }
 void loadImage(String imageFile) {

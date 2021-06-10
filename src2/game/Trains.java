@@ -21,6 +21,7 @@ public class Trains extends GameObject{
 	
 	public void update() {
 		x-=speed;
+		super.update();
 	}
 	public void draw(Graphics g) {
         //g.setColor(Color.RED);

@@ -19,31 +19,36 @@ public void addTrains() {
 	//trains.add(new Trains(1500,r.nextInt(500)+200,100,70));
 	
 	if(r.nextInt(3)==0) {
-	trains.add(new Trains(1500,245,70,70));
+	trains.add(new Trains(1500,245,50,50));
 	}
 	else if(r.nextInt(3)==1) {
-	trains.add(new Trains(1500,410,70,70));
+	trains.add(new Trains(1500,410,50,50));
 	}
 	else {
-	trains.add(new Trains(1500,575,70,70));
+	trains.add(new Trains(1500,575,50,50));
 	}
 }
 public void addBenches() {
 //	benches.add(new Benches(1500,r.nextInt(500)+200,60,60));
-	benches.add(new Benches(1500,250,70,70));
-	benches.add(new Benches(1500,415,70,70));
-	benches.add(new Benches(1500,580,70,70));
+	if(r.nextInt(3)==0) {
+		benches.add(new Benches(1500,250,50,50));
+	}
+	else if(r.nextInt(3)==0) {
+		benches.add(new Benches(1500,415,50,50));
+	}else {
+	benches.add(new Benches(1500,580,50,50));
+	}
 }
 public void addCoins() {
 	//coins.add(new Coins(1500,r.nextInt(500)+200,70,70));
 	if(r.nextInt(3)==0) {
-		coins.add(new Coins(1500,245,70,70));
+		coins.add(new Coins(1500,245,50,50));
 	}
 	else if(r.nextInt(3)==1) {
-		coins.add(new Coins(1500,410,70,70));
+		coins.add(new Coins(1500,410,50,50));
 	}
 	else{
-	coins.add(new Coins(1500,575,70,70));
+	coins.add(new Coins(1500,575,50,50));
 	}
 }
 
@@ -67,6 +72,9 @@ for(Coins c:coins) {
 		c.isActive=false;	
 		}
 }
+
+checkCollision();
+//purgeObjects();
 }
 public void draw(Graphics g) {
 bob2.draw(g);	
@@ -102,6 +110,30 @@ public void purgeObjects() {
 			coins.remove(i);
 		}
 	}
+}
+
+public void checkCollision() {
+	for (int i = 0; i < trains.size(); i++) {
+		if(bob2.collisionBox.intersects(trains.get(i).collisionBox)) {
+			System.out.println("player dies dies");
+			trains.get(i).isActive=false;
+			bob2.isActive=false;
+			break;
+			}
+}for (int i = 0; i < benches.size(); i++) {
+	if(bob2.collisionBox.intersects(benches.get(i).collisionBox)) {
+		System.out.println("player dies");
+		benches.get(i).isActive=false;
+		bob2.isActive=false;
+		break;
+		}
+}for (int i = 0; i < coins.size(); i++) {
+	if(bob2.collisionBox.intersects(coins.get(i).collisionBox)) {
+		System.out.println("player dies dies");
+		coins.get(i).isActive=false;
+		break;
+	}
+}
 }
 @Override
 public void actionPerformed(ActionEvent arg0) {
