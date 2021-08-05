@@ -6,15 +6,15 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-public class Coins extends GameObject{
+public class Coin extends GameObject{
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
 	
-	public Coins(int x, int y, int width, int height) {
+	public Coin(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
-		speed = 2;
+		speed = 3;
 		if (needImage) {
 		    loadImage ("pngtree-cartoon-coin-image_1288778.jpg");
 		}
@@ -24,8 +24,7 @@ public class Coins extends GameObject{
 		super.update();
 	}
 	public void draw(Graphics g) {
-	  //  g.setColor(Color.YELLOW);
-	   // g.fillRect(x, y, width, height);
+	   super.draw(g);
 		
 		if (gotImage) {
 			g.drawImage(image, x, y, width, height, null);

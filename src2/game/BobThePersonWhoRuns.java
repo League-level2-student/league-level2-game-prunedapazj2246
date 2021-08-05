@@ -25,8 +25,7 @@ public class BobThePersonWhoRuns extends GameObject{
 	
 	
 void draw(Graphics g) {
-	// g.setColor(Color.BLUE);
-    // g.fillRect(x, y, width, height);
+	super.draw(g);
      if (gotImage) {
     		g.drawImage(image, x, y, width, height, null);
     	} else {

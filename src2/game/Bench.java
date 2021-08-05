@@ -6,12 +6,12 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-public class Benches extends GameObject{
+public class Bench extends GameObject{
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
 	
-	public Benches(int x, int y, int width, int height) {
+	public Bench(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
 		speed = 2;
@@ -26,8 +26,7 @@ public void update() {
 	super.update();
 }
 public void draw(Graphics g) {
-   // g.setColor(Color.GREEN);
-   // g.fillRect(x, y, width, height);
+	super.draw(g);
     if (gotImage) {
     	g.drawImage(image, x, y, width, height, null);
     } else {

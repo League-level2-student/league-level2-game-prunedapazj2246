@@ -6,12 +6,12 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-public class Trains extends GameObject{
+public class Train extends GameObject{
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
 	
-	public Trains(int x, int y, int width, int height) {
+	public Train(int x, int y, int width, int height) {
 		super(x, y, width, height);
 	speed =1;
 	if (needImage) {
@@ -24,8 +24,7 @@ public class Trains extends GameObject{
 		super.update();
 	}
 	public void draw(Graphics g) {
-        //g.setColor(Color.RED);
-        //g.fillRect(x, y, width, height);
+		super.draw(g);
 		if (gotImage) {
 			g.drawImage(image, x, y, width, height, null);
 		} else {
