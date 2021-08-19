@@ -45,15 +45,19 @@ void jumpUp() {
 }
 void left() {
 	x-=speed2;
+	update();
 }
 void right() {
 	x+=speed2;
+	update();
 }
 void up() {
 	y-=speed;	
+	update();
 }
 void down() {
 	y+=speed;
+	update();
 }
 void loadImage(String imageFile) {
     if (needImage) {
@@ -65,5 +69,8 @@ void loadImage(String imageFile) {
         }
         needImage = false;
     }
+}
+void update(){
+collisionBox.setBounds(x, y, width, height);
 }
 }

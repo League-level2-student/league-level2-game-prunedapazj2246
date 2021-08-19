@@ -12,8 +12,13 @@ ArrayList<Train>trains= new ArrayList<Train>();
 ArrayList<Bench>benches= new ArrayList<Bench>();
 ArrayList<Coin>coins= new ArrayList<Coin>();
 Random r = new Random();
+int score=0;
 public ObjectManager(BobThePersonWhoRuns bob2) {
 	this.bob2=bob2;
+}
+
+public int getScore() {
+	return this.score;
 }
 public void addTrains() {
 	//trains.add(new Trains(1500,r.nextInt(500)+200,100,70));
@@ -56,25 +61,25 @@ public void addCoins() {
 public void update() {
 for(Train t:trains) {
 	t.update();
-	if(t.x<SubwaySurfers.WIDTH) {
+	if(t.x<0) {
 	t.isActive=false;	
 	}
 }	
 for(Bench b:benches) {
 	b.update();
-	if(b.x<SubwaySurfers.WIDTH) {
+	if(b.x<0) {
 		b.isActive=false;	
 		}
 }
 for(Coin c:coins) {
 	c.update();
-	if(c.x<SubwaySurfers.WIDTH) {
+	if(c.x<0) {
 		c.isActive=false;	
 		}
 }
 
 
-//purgeObjects();
+purgeObjects();
 checkCollision();
 }
 public void draw(Graphics g) {
@@ -136,6 +141,7 @@ public void checkCollision() {
 	if(bob2.collisionBox.intersects(coins.get(i).collisionBox)) {
 		System.out.println("coin collected");
 		coins.get(i).isActive=false;
+		score +=1;
 		break;
 	}
 }

@@ -88,6 +88,10 @@ if(!bob.isActive) {
         g.fillRect(0, 520, SubwaySurfers.WIDTH, 10);
         g.fillRect(0, 690, SubwaySurfers.WIDTH, 20);
         ob.draw(g);
+        String score =String.valueOf(ob.getScore());
+        g.setFont(directions);
+        g.setColor(Color.white);
+        g.drawString(score, 10, 20);
     }
 
     public void drawEndState(Graphics g) {
@@ -98,7 +102,7 @@ if(!bob.isActive) {
         g.drawString("You lost you suck", 600, 100);
         g.setFont(directions);
         g.setColor(Color.WHITE);
-        g.drawString("you got"+" "+"coins" , 600, 300);
+        g.drawString("you got "+ ob.getScore() +" coins" , 600, 300);
         g.setFont(directions);
         g.setColor(Color.WHITE);
         g.drawString("press enter to restart", 600, 500);
@@ -134,6 +138,9 @@ if(!bob.isActive) {
             System.out.println("enter");
             if (currentState == END) {
                 currentState = MENU;
+                bob=new BobThePersonWhoRuns(20,415,70,80);
+                System.out.println("restart");
+                ob=new ObjectManager(bob);
             } else {
                 currentState++;
             }
