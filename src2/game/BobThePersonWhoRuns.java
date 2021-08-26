@@ -15,8 +15,7 @@ public class BobThePersonWhoRuns extends GameObject{
 		    super(x, y, width, height);
 		speed=160;
 		speed2=8;
-		jumpY=70;
-		jumpX=40;
+		jumpSpeed=200;
 		if (needImage) {
 		    loadImage ("images.png");
 		}
@@ -35,13 +34,12 @@ void draw(Graphics g) {
 
 }
 void jumpUp() {
-	y-=jumpY;
-	x+=jumpX;
-	y+=jumpY;
-	x+=jumpX;
-	for (int i = 0; i < 2; i++) {
-		x-=jumpX;
-	}
+	
+	x+=jumpSpeed;
+	//for (int i = 0; i < 2; i++) {
+		//x+=jumpSpeed;
+	//}
+	update();
 }
 void left() {
 	x-=speed2;

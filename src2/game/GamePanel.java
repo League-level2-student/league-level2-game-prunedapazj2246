@@ -149,29 +149,36 @@ if(!bob.isActive) {
             if (arg0.getKeyCode() == KeyEvent.VK_UP) {
                 System.out.println("UP");
                 bob.up();
-                if(bob.y<96) {
-                    bob.y=255;
-                }
+              //  if(bob.y<96) {
+                //    bob.y=255;
+                //}
             } else if (arg0.getKeyCode()==KeyEvent.VK_DOWN){
                 System.out.println("DOWN");
                 bob.down();
-                if(bob.y>575) {
-                    bob.y=575;
-                }
+               // if(bob.y>575) {
+                 //   bob.y=575;
+                //}
             }else if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
             
                 System.out.println("LEFT");
                 bob.left();
-                if(bob.x<=0) {
-                    bob.x=0;
+                if(bob.x>=SubwaySurfers.WIDTH) {
+                	bob.x=SubwaySurfers.WIDTH;
                 }
                 
             } else if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
                 System.out.println("RIGHT");
                 bob.right();
-                if(bob.x>=400) {
-                    bob.x=400;
+                if(bob.x>=SubwaySurfers.WIDTH) {
+                	bob.x=SubwaySurfers.WIDTH;
                 }
+            }
+            else if(arg0.getKeyCode()==KeyEvent.VK_SPACE) {
+            	System.out.println("JUMP");
+            	bob.jumpUp();
+            	 if(bob.x>=SubwaySurfers.WIDTH) {
+                 	bob.x=SubwaySurfers.WIDTH;
+                 }
             }
             startGame();
         }
