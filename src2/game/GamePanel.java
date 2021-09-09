@@ -141,6 +141,9 @@ if(!bob.isActive) {
                 bob=new BobThePersonWhoRuns(20,415,70,80);
                 System.out.println("restart");
                 ob=new ObjectManager(bob);
+                benchesSpawn.addActionListener(ob);
+                coinsSpawn.addActionListener(ob);
+                trainsSpawn.addActionListener(ob);
             } else {
                 currentState++;
             }
@@ -149,28 +152,28 @@ if(!bob.isActive) {
             if (arg0.getKeyCode() == KeyEvent.VK_UP) {
                 System.out.println("UP");
                 bob.up();
-              //  if(bob.y<96) {
-                //    bob.y=255;
-                //}
+                if(bob.y<96) {
+                    bob.y=255;
+                 }
             } else if (arg0.getKeyCode()==KeyEvent.VK_DOWN){
                 System.out.println("DOWN");
                 bob.down();
-               // if(bob.y>575) {
-                 //   bob.y=575;
-                //}
+                if(bob.y>575) {
+                    bob.y=575;
+                }
             }else if (arg0.getKeyCode() == KeyEvent.VK_LEFT) {
             
                 System.out.println("LEFT");
                 bob.left();
-                if(bob.x>=SubwaySurfers.WIDTH) {
-                	bob.x=SubwaySurfers.WIDTH;
+                if(bob.x<=0) {
+                	bob.x=0;
                 }
                 
             } else if (arg0.getKeyCode() == KeyEvent.VK_RIGHT) {
                 System.out.println("RIGHT");
                 bob.right();
-                if(bob.x>=SubwaySurfers.WIDTH) {
-                	bob.x=SubwaySurfers.WIDTH;
+                if(bob.x+70>=SubwaySurfers.WIDTH) {
+                	bob.x=SubwaySurfers.WIDTH-70;
                 }
             }
             else if(arg0.getKeyCode()==KeyEvent.VK_SPACE) {
@@ -186,7 +189,7 @@ if(!bob.isActive) {
         if (currentState == MENU) {
             if (arg0.getKeyCode() == KeyEvent.VK_SPACE) {
                 JOptionPane.showMessageDialog(null,
-                        "Use the left and right arrow keys " + "to switch lanes and the up arrow key to jump.");
+                        "The object of the game is to get as may coins as possible. Use the up and down keys to switch lanes and the right and left keys to move across the map. Make sure you dont hit any cars or train or you will die!");
             }
         }
         if(currentState == END) {

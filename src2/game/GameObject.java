@@ -27,8 +27,8 @@ void update() {
 	collisionBox.setBounds(x, y, width, height);
 }
 void draw(Graphics g) {
-	g.setColor(Color.RED);
-	g.drawRect(collisionBox.x, collisionBox.y, collisionBox.width, collisionBox.height);
+	//g.setColor(Color.RED);
+	//g.drawRect(collisionBox.x, collisionBox.y, collisionBox.width, collisionBox.height);
 	
 }
 }
